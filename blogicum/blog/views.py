@@ -1,5 +1,5 @@
 from django.shortcuts import render
-# Create your views here.
+
 
 posts = [
     {
@@ -62,4 +62,3 @@ def category_posts(request, category_slug):
     template = 'blog/category.html'
     context = {'category_slug': category_slug}
     return render(request, template, context)
-
