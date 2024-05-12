@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+  <title>Остров отчаянья. 25 октября 1659 года</title>
+{% endblock %}
+
+{% block content %}
+  <article>
+    <ul>
+      <li>
+        Место: {{ post.location }}             
+      </li>
+      <li>
+        Дата: {{ post.date}}
+      </li>
+      <li>
+        Категория: <a href="{% url 'pages:empty_page' %}">not-my-day</a>
+      </li>
+    </ul>         
+    <p>
+      {{ post.text }}
+    </p>          
+  </article>                
+{% endblock %}
+
