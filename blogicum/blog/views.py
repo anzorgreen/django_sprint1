@@ -1,5 +1,5 @@
-from django.shortcuts import render
-
+from django.http import Http404
+from django.shortcuts import render, get_object_or_404
 
 posts = [
     {
@@ -52,9 +52,13 @@ def index(request):
 
 
 def post_detail(request, id):
-    template = 'blog/detail.html'
-    post = posts[id]
-    context = {'post': post}
+    if id in range(len(posts)):
+        post = posts[id]
+        context = {'post': post}
+        template = 'blog/detail.html'
+    else:
+        context = {}
+        template = 'pages/empty.html'
     return render(request, template, context)
 
 
